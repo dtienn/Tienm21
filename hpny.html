@@ -1,0 +1,85 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chúc Mừng Năm Mới</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            margin-top: 50px;
+            padding: 30px;
+            border-radius: 15px;
+            background-color: #ffb6c1;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        h1 {
+            color: #d2691e;
+            font-size: 2.5em;
+        }
+        p {
+            font-size: 1.2em;
+            color: #333;
+        }
+        .button {
+            padding: 15px 30px;
+            background-color: #ff69b4;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.5em;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background-color: #ff1493;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Chúc Mừng Năm Mới!</h1>
+        <p>Đằng ấy có thể cho dtien biết đằng ấy là ai đc kh nào?:</p>
+        <form id="infoForm">
+            <label for="name">Tên của bạn:</label><br>
+            <input type="text" id="name" name="name" required><br><br>
+            <label for="age">Bạn nhiu tuổi rồi?:</label><br>
+            <input type="number" id="age" name="age" required><br><br>
+            <label for="gender">Giới tính của bạn:</label><br>
+            <input type="radio" id="male" name="gender" value="Nam" required>
+            <label for="male">Nam</label><br>
+            <input type="radio" id="female" name="gender" value="Nữ">
+            <label for="female">Nữ</label><br><br>
+            <input type="submit" class="button" value="Nhận Lời Chúc">
+        </form>
+        <p id="greetingMessage" style="display:none;"></p>
+    </div>
+
+    <script>
+        document.getElementById('infoForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var name = document.getElementById('name').value;
+            var age = document.getElementById('age').value;
+            var gender = document.querySelector('input[name="gender"]:checked').value;
+            var greetingMessage = document.getElementById('greetingMessage');
+            greetingMessage.style.display = 'block';
+            greetingMessage.innerHTML = 'Chúc mừng năm mới, ' + name + '😍 Chúc bạn đằng ấy tuổi năm vui vẻ và nhớ là đừng bỏ cuộc với quyết định của mình nhé!';
+            if (gender === 'Nam') {
+                greetingMessage.innerHTML += '<br>Dtien hc 11A4 này,có gì ăn thì mang lên lớp tien ăn ké nha';
+            } else {
+                greetingMessage.innerHTML += '<br>'+name+' à! Ngày mai sẽ là ngày may mắn của bn đó kk=))';
+            } 
+        });
+    </script>
+</body>
+</html>
